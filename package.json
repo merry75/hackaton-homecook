@@ -1,32 +1,51 @@
 {
-  "name": "rereddit",
-  "version": "1.0.0",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "author": "Elevation Academy",
-  "license": "ISC",
-  "dependencies": {
-    "angular": "^1.6.2",
-    "angular-ui-router": "^0.4.2",
-    "body-parser": "^1.17.1",
-    "bootstrap": "^3.3.7",
-    "express": "^4.15.2",
-    "express-jwt": "^5.1.0",
-    "mongoose": "^4.9.4",
-    "passport": "^0.3.2",
-    "passport-facebook": "^2.1.1",
-    "ui-router": "^1.0.0-alpha.3"
-  },
-  "main": "server.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/merry75/rereddit.git"
-  },
-  "bugs": {
-    "url": "https://github.com/merry75/rereddit/issues"
-  },
-  "homepage": "https://github.com/merry75/rereddit#readme",
-  "description": ""
+    "name": "rereddit",
+    "version": "1.0.0",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "author": "The Chefs",
+    "license": "ISC",
+    "dependencies": {
+        "angular": "^1.6.2",
+        "angular-ui-router": "^0.4.2",
+        "bcrypt": "^1.0.2",
+        "bcrypt-nodejs": "^0.0.3",
+        "body-parser": "^1.17.1",
+        "bootstrap": "^3.3.7",
+        "chalk": "^1.1.3",
+        "compression": "^1.6.2",
+        "connect-mongo": "^1.3.2",
+        "crypto": "^0.0.3",
+        "dotenv": "^4.0.0",
+        "errorhandler": "^1.5.0",
+        "express": "^4.15.2",
+        "express-flash": "^0.0.2",
+        "express-jwt": "^5.1.0",
+        "express-session": "^1.15.2",
+        "express-status-monitor": "^0.1.9",
+        "express-validator": "^3.2.0",
+        "mongoose": "^4.9.4",
+        "morgan": "^1.8.1",
+        "node-sass-middleware": "^0.11.0",
+        "nodemailer": "^4.0.1",
+        "passport": "^0.3.2",
+        "passport-facebook": "^2.1.1",
+        "passport-google-oauth": "^1.0.0",
+        "passport-local": "^1.0.0",
+        "passport-oauth": "^1.0.0",
+        "path": "^0.12.7",
+        "ui-router": "^1.0.0-alpha.3"
+    },
+    "main": "server.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/merry75/rereddit.git"
+    },
+    "bugs": {
+        "url": "https://github.com/merry75/rereddit/issues"
+    },
+    "homepage": "https://github.com/merry75/rereddit#readme",
+    "description": ""
 }
