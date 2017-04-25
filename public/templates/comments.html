@@ -1,0 +1,17 @@
+<div class="page-header">
+    <a ui-sref="home">back</a>
+    <h3>{{post.text}}</h3>
+</div>
+<div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
+    <span class="glyphicon glyphicon-thumbs-up" ng-click="upvote(comment)"></span>
+    <span class="glyphicon glyphicon-thumbs-down" ng-click="downvote(comment)"></span> {{comment.upvotes}} - by {{post.author}} 
+    <span class="comment-body">{{comment.body}}</span>
+    <button class="btn btn-danger" type="button" ng-click="deleteComment(comment._id)" >Remove Comment</button>
+</div>
+<form ng-submit="addComment()">
+    <h3>Add a new comment</h3>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Comment" ng-model="body"></input>
+    </div>
+    <button type="submit" class="btn btn-primary">Post</button>
+</form>

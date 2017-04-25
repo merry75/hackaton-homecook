@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <base href="/">
+    <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body ng-app="homecook" ng-controller="authController">
+      <nav class="navbar navbar-default navbar-static-top" ng-controller="NavCtrl">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" ui-sref="home">
+                    <span class="logo-text">Home Cook</span>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <p class="navbar-text">{{currentUser}}</p>
+                    <a ng-hide="currentUser" target="_self" href="/auth/facebook" class="btn navbar-btn btn-primary">Login</a>
+                    <button ng-show="currentUser" type="button" ng-click="logout()" class="btn btn-default navbar-btn">Log Out</button>
+                    <li><a href="#">Sign In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-7 pull-left" ng-repeat="">
+                <div class="col-xs-3 pull-left"><img src="{{img_food}}" alt=""/></div>
+                <div class="col-xs-4">
+                    <h5>{{Dishe}}</h5> - <h5>{{Price}}</h5> <br/>
+                    <span class="glyphicon glyphicon-thumbs-up" ng-click="upvote(comment)"></span>
+                    <span class="glyphicon glyphicon-thumbs-down" ng-click="downvote(comment)"></span> - <!--  <ui-view>template reviews to do</ui-view> --><ui-view>Reviews</ui-view><br/>
+                    <button type="button" class="btn btn-primary" ui-sref="comment({id: post._id})">Make A Review</button> <!-- let s ask them how to display the state of the review with ui view and ui sref -->
+                    <h5>{{Location}}</h5> - <h5>{{Dietary Restrictions}}</h5> <br/>
+                    <a href="order.html" target="_blank">Order...</a>
+                    <!-- display last recent review with an <ui-view></ui-view>-->
+                </div>
+            </div>
+            <div class="col-xs-5 pull-right" id="map"><img src="" alt=""/>blabla</div>
+        </div>
+    </div>
+    
+    <script src="angular/angular.js"></script>
+    <script src="angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services/postFactory.js"></script>
+    <script src="js/services/authFactory.js"></script>
+    <script src="js/controllers/authController.js"></script>
+    <script src="js/controllers/navController.js"></script>
+    <script src="js/controllers/postController.js"></script>
+    <script src="js/controllers/commentController.js"></script>
+</body>
+
+</html>

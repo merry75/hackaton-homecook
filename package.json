@@ -1,0 +1,32 @@
+{
+  "name": "rereddit",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Elevation Academy",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-ui-router": "^0.4.2",
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.2",
+    "express-jwt": "^5.1.0",
+    "mongoose": "^4.9.4",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "ui-router": "^1.0.0-alpha.3"
+  },
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/merry75/rereddit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/merry75/rereddit/issues"
+  },
+  "homepage": "https://github.com/merry75/rereddit#readme",
+  "description": ""
+}
