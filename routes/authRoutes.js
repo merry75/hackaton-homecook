@@ -1,20 +1,43 @@
-//todo
 var express = require('express');
 var router = express.Router();
-var passport = require('../models/passport');
+var User = require("../models/userModel");
+var passport = require('passport');
 
-router.get('/facebook',
-  passport.authenticate('facebook', { scope: 'email' }));
 
-router.get('/facebook/callback',
-  passport.authenticate('facebook', { session: false, failureRedirect: '/' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    console.log(req.user);
-    res.redirect('/authorization?token=' + req.user.token + "&name=" + req.user.name);
-    res.redirect('/');
+
+//the '/users' routes will go here
+router.post('/register', function(req, res, next) {
+  User.register(new User({ username: req.body.username }), req.body.password, function(err, user) {
+    if (err) {
+      console.log('Error registering!', err);
+      return next(err);
+    }
+    req.login(user, function(err) {
+      if (err) {
+        return next(err);
+      }
+      res.send(req.user);
+    });
   });
+});
 
+router.post('/login', passport.authenticate('local'), function(req, res) {
+  // If this function gets called, authentication was successful.
+  // `req.user` contains the authenticated user.
+  res.send(req.user.username)
+});
+
+router.get('/logout', function(req, res) {
+  req.logout();
+  res.send('Logged Out');
+});
+
+router.get('/currentuser', function(req, res) {
+  if (req.user) {
+    res.send(req.user.username)
+  } else {
+    res.send(null)
+  }
+});
 
 module.exports = router;
-

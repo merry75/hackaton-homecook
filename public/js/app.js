@@ -1,4 +1,4 @@
-var app = angular.module('rereddit', ['ui.router']);
+var app = angular.module('homecook', ['ui.router']);
 
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
@@ -18,8 +18,13 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('login', {
       url: '/login',
       templateUrl: '/templates/login.html',
-      controller: 'AuthController'
+      controller: 'authController'
     })
+    .state('register', {
+      url: '/register',
+      templateUrl: '/templates/register.html',
+      controller: 'authController'
+    })   
     .state('auth', {
       url: '/authorization?token&name',
       controller: function($rootScope, $stateParams, $state, $http) {

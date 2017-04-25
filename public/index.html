@@ -23,26 +23,17 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <p class="navbar-text">{{currentUser}}</p>
-                    <a ng-hide="currentUser" target="_self" href="/auth/facebook" class="btn navbar-btn btn-primary">Login</a>
-                    <button ng-show="currentUser" type="button" ng-click="logout()" class="btn btn-default navbar-btn">Log Out</button>
-                    <li><a href="#">Sign In</a></li>
+                    <a type="button" ui-sref="login" ng-hide="currentUser.username" class="btn btn-default navbar-btn">Log In</a>
+                    <button type="button" ng-show="currentUser.username" ng-click="logout()" class="btn btn-default navbar-btn">Log Out</button>
+                    <li><a type="button" ui-sref="register" ng-hide="currentUser.username" class="btn btn-default navbar-btn">Register</a></li>
                 </ul>
+
             </div>
         </div>
     </nav>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <form ng-submit="">
-                    <input class="form-control" type="text" placeholder="Where do you live ?"/>
-                    <button class="btn btn-primary" type="submit" ng-click="">Search</button>
-                    <a href="cookprofile.html">cook profile</a>
-                    <a href="userprofile.html">user profile</a>
-                    <a href="order.html">order form</a>
-                    <a href="list.html">list</a>
-                   <!--  <ui-view></ui-view> -->
-                </form>
-            </div>
+                 <ui-view></ui-view>
         </div>
     </div>
     
