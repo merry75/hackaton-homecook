@@ -1,7 +1,7 @@
-app.controller('CommentController', function($scope, $stateParams, postFactory) {
+app.controller('CommentController', function($scope, $stateParams, cookFactory) {
 
   $scope.addComment = function() {
-    postFactory.addComment($stateParams.id ,$scope.body)
+    cookFactory.addComment($stateParams.id ,$scope.body)
       .then(function(newPost) {
         $scope.post = newPost;
       })
@@ -14,20 +14,20 @@ app.controller('CommentController', function($scope, $stateParams, postFactory) 
 
 $scope.upvote = function(comment) {
 // console.log($stateParams.id);
- postFactory.voteComment($stateParams.id, comment._id, true).then(function(response){
+ cookFactory.voteComment($stateParams.id, comment._id, true).then(function(response){
    comment.upvotes++;
  });
      };
 
  $scope.downvote = function(comment) {
-  postFactory.voteComment($stateParams.id, comment._id, false).then(function(response){
+  cookFactory.voteComment($stateParams.id, comment._id, false).then(function(response){
     comment.upvotes--;
   });
       };
 
   $scope.deleteComment = function(commentid) {
     var self = this;
-    postFactory.deleteComment(this.post._id, commentid)
+    cookFactory.deleteComment(this.post._id, commentid)
       .then(function(response) {
         $scope.post.comments.splice(self.$index, 1);
       })
@@ -37,7 +37,7 @@ $scope.upvote = function(comment) {
       });
   }
 
-    postFactory.getComments($stateParams.id).then(function(comments) {
+    cookFactory.getComments($stateParams.id).then(function(comments) {
     $scope.post = comments;
   });
 

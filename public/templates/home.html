@@ -1,10 +1,10 @@
         <div class="row">
                 <form ng-submit="">
-                    <input class="form-control" type="text" placeholder="Where do you live ?" ng-model="search.text"/>
-                    <button class="btn btn-primary" type="submit" ng-model="search.field" ng-value="'city'">Search by City</button>
-                    <a href="cookprofile.html">cook profile</a>
-                    <a href="userprofile.html">user profile</a>
-                    <a href="order.html">order form</a>
-                    <a href="list.html">list</a>
+                    <input class="form-control" type="text" placeholder="Where do you live ?" ng-model="user.location"/>
+                    <button ui-sref="list" class="btn btn-primary" type="submit" ng-model="user.location" ng-value="'city'">Search by City</button>
+                    <a href="../templates/cookprofile.html">cook profile</a>
+                    <a href="../templates/userprofile.html">user profile</a>
+                    <a href="../templates/order.html">order form</a>
+                    <a href="../templates/list.html">list</a>
                 </form>
         </div>

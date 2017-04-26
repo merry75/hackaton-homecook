@@ -1,7 +1,7 @@
-app.controller('PostController', function($scope, postFactory) {
+app.controller('PostController', function($scope, cookFactory) {
 
   $scope.addPost = function() {
-    postFactory.addPost($scope.newPost)
+    cookFactory.addPost($scope.newPost)
       .then(function(post) {
         $scope.posts.push(post);
       })
@@ -11,16 +11,16 @@ app.controller('PostController', function($scope, postFactory) {
       });
   }
   $scope.upvote = function(post) {
-    postFactory.addUpvotesToPost(post);
+    cookFactory.addUpvotesToPost(post);
   }
 
   $scope.downvote = function(post) {
-    postFactory.addDownvotesToPost(post);
+    cookFactory.addDownvotesToPost(post);
   }
 
   $scope.deletePost = function() {
     var self = this;
-    postFactory.deletePost(this.post)
+    cookFactory.deletePost(this.post)
       .then(function(response) {
         $scope.posts.splice(self.$index, 1);
       })
@@ -30,7 +30,7 @@ app.controller('PostController', function($scope, postFactory) {
       });
   }
 
-    postFactory.getPosts().then(function(posts) {
+    cookFactory.getPosts().then(function(posts) {
     $scope.posts = posts;
   });
 

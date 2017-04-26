@@ -1,6 +1,7 @@
 //todo
 //userSchema and model
 var mongoose = require('mongoose');
+var plm = require('passport-local-mongoose');
 var Schema = mongoose.Schema;
 
 const UserSchema = new mongoose.Schema({
@@ -23,6 +24,9 @@ const UserSchema = new mongoose.Schema({
     availability: {/*here goes the avalieoala*/},
   }
 }, { timestamps: true });
+
+
+UserSchema.plugin(plm);
 
 var User = mongoose.model("User", UserSchema);
 

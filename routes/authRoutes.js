@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var User = require("../models/userModel");
-var passport = require('passport');
+var passport = require('../models/passport');
 
 
 
 //the '/users' routes will go here
 router.post('/register', function(req, res, next) {
-  User.register(new User({ username: req.body.username }), req.body.password, function(err, user) {
+  User.register(new User({ username: req.body.username }), req.body.password, req.user.email, req.user.role, function(err, user) {
     if (err) {
       console.log('Error registering!', err);
       return next(err);
